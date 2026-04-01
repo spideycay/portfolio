@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bread And Beans - Best Café in Khanna | Coffee, Pizza & More</title>
+    <meta name="description" content="Bread And Beans - Where Flavor Meets Comfort. Best café in Khanna serving delicious pizza, burgers, coffee and more. Located in Arora Bakery, Grand Trunk Road. Open daily till 10 PM.">
+    <meta name="keywords" content="Café in Khanna, Best coffee shop in Khanna, Bread And Beans café, Coffee and snacks near me, Best pizza café in Khanna, Arora Bakery café">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --coffee-dark: #6F4E37;
+            --coffee-medium: #8B4513;
+            --beige: #F5DEB3;
+            --cream: #FFFDD0;
+            --warm-white: #FFF8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #202020;
+            background: var(--warm-white);
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--coffee-medium);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://api.kuse.ai/api/folder/v1/file/bef0691a439ffdd815a16145d04c300eca66eb7e4ebf34bf03eb1370ee780288_2824775.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--coffee-medium);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--coffee-medium);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--coffee-dark);
+            border-color: var(--coffee-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--coffee-medium);
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #25D366;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            border-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--coffee-dark);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Menu Cards */
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .menu-card-content {
+            padding: 24px;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Reviews */
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 20px;
+        }
+
+        /* Contact */
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--coffee-medium);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coffee-dark);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--coffee-medium);
+            transform: translateY(-3px);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 36px;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            nav .hidden.md\\:flex {
+                display: none !important;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Kuse Branding */
+        .kuse-branding {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .kuse-branding:hover {
+            color: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .kuse-branding:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Rating Badge */
+        .rating-badge {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .rating-badge .stars {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-[#8B4513] to-[#6F4E37] rounded-full flex items-center justify-center">
+                    <i class="fas fa-coffee text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-[#6F4E37] heading-font">Bread And Beans</h1>
+                    <p class="text-xs text-gray-600">Café in Khanna</p>
+                </div>
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#home" class="nav-link text-gray-700 hover:text-[#8B4513] font-medium">Home</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-[#8B4513] font-medium">About</a>
+                <a href="#menu" class="nav-link text-gray-700 hover:text-[#8B4513] font-medium">Menu</a>
+                <a href="#gallery" class="nav-link text-gray-700 hover:text-[#8B4513] font-medium">Gallery</a>
+                <a href="#reviews" class="nav-link text-gray-700 hover:text-[#8B4513] font-medium">Reviews</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-[#8B4513] font-medium">Contact</a>
+                <a href="tel:07009020003" class="btn-primary text-sm py-2 px-4">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+            <button class="md:hidden text-2xl text-[#6F4E37]" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-menu md:hidden mt-4 pb-4" id="mobileMenu">
+            <div class="flex flex-col gap-4 px-6">
+                <a href="#home" class="text-gray-700 font-medium" onclick="toggleMobileMenu()">Home</a>
+                <a href="#about" class="text-gray-700 font-medium" onclick="toggleMobileMenu()">About</a>
+                <a href="#menu" class="text-gray-700 font-medium" onclick="toggleMobileMenu()">Menu</a>
+                <a href="#gallery" class="text-gray-700 font-medium" onclick="toggleMobileMenu()">Gallery</a>
+                <a href="#reviews" class="text-gray-700 font-medium" onclick="toggleMobileMenu()">Reviews</a>
+                <a href="#contact" class="text-gray-700 font-medium" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content px-6">
+            <div class="rating-badge">
+                <span class="stars">⭐ 4.3</span>
+                <span class="text-gray-700">123 Reviews</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 heading-font">Bread And Beans</h1>
+            <p class="text-2xl md:text-3xl mb-8 font-light">Where Flavor Meets Comfort</p>
+            <p class="text-lg mb-10 max-w-2xl mx-auto">Experience the perfect blend of cozy ambiance and delicious food at Khanna's favorite café</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#menu" class="btn-primary">View Menu</a>
+                <a href="https://wa.me/917009020003" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Reserve via WhatsApp
+                </a>
+                <a href="https://www.google.com/maps/dir//First+Floor,+Arora+Bakery,+Grand+Trunk+Rd,+near+SBI+Bank,+Shiv+Puri+Muhalla,+Pratap+Colony,+Khanna,+Punjab+141401" target="_blank" class="btn-secondary">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title heading-font">Our Story</h2>
+            <p class="section-subtitle">A cozy corner where every cup tells a story</p>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://api.kuse.ai/api/folder/v1/file/bef0691a439ffdd815a16145d04c300eca66eb7e4ebf34bf03eb1370ee780288_2824775.jpeg" alt="Bread And Beans Café Interior" class="rounded-2xl shadow-2xl">
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-[#6F4E37] mb-6 heading-font">Welcome to Bread And Beans</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Nestled on the first floor of Arora Bakery on Grand Trunk Road, Bread And Beans is Khanna's beloved café destination. We've created a warm, inviting space where friends gather, couples connect, and food lovers discover their new favorites.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Our café combines the rich aroma of freshly brewed coffee with the comfort of a home away from home. From our signature pizzas to indulgent desserts, every dish is crafted with care and passion.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        With cozy seating, warm lighting, and an aesthetic that's perfect for your Instagram feed, we're more than just a café – we're your daily escape into comfort and flavor.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-[#FFF8F0] p-4 rounded-xl">
+                            <p class="text-3xl font-bold text-[#8B4513] mb-1">4.3⭐</p>
+                            <p class="text-sm text-gray-600">Customer Rating</p>
+                        </div>
+                        <div class="bg-[#FFF8F0] p-4 rounded-xl">
+                            <p class="text-3xl font-bold text-[#8B4513] mb-1">10 PM</p>
+                            <p class="text-sm text-gray-600">Closing Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="bg-[#FFF8F0]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="section-title heading-font">Our Menu</h2>
+            <p class="section-subtitle">Handcrafted dishes that bring comfort to every bite</p>
+            
+            <h3 class="text-2xl font-bold text-[#6F4E37] mb-8 text-center">Featured Items</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="menu-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/d38efc1419995b81da413a3560135153fe4c138d088534f75ea54d9546a64af8_2824807.jpeg" alt="Pizza at Bread And Beans">
+                    <div class="menu-card-content">
+                        <h4 class="text-2xl font-bold text-[#6F4E37] mb-2">Pizza</h4>
+                        <p class="text-gray-600">Crispy, cheesy, and loaded with fresh toppings. Our signature pizzas are baked to perfection.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/01e1d758492c9d56eac0817e0914ad4ea485408468ebda1589518a05993f8803_2824786.jpeg" alt="Burger at Bread And Beans">
+                    <div class="menu-card-content">
+                        <h4 class="text-2xl font-bold text-[#6F4E37] mb-2">Burger</h4>
+                        <p class="text-gray-600">Juicy patties, fresh veggies, and our special sauce in a perfectly toasted bun.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/9971317936abb9ba92d44e9cc1734d67835d1734e66648147fc58cb5e3ccc91b_2824780.jpeg" alt="Caramel Latte at Bread And Beans">
+                    <div class="menu-card-content">
+                        <h4 class="text-2xl font-bold text-[#6F4E37] mb-2">Caramel Latte</h4>
+                        <p class="text-gray-600">Rich espresso meets sweet caramel in this smooth, creamy coffee delight.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/48274ae2085f48484cdee237ecc86000c6e81784ee22a520a9e86e4c8370ba51_2824778.jpeg" alt="Sizzling Brownie Sundae at Bread And Beans">
+                    <div class="menu-card-content">
+                        <h4 class="text-2xl font-bold text-[#6F4E37] mb-2">Sizzling Brownie Sundae</h4>
+                        <p class="text-gray-600">Warm chocolate brownie topped with vanilla ice cream, chocolate sauce, and nuts.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/71211cbe086ca467dd82762638ceea0db764156e0be2c1b252e0c512666aa5a5_2824819.jpeg" alt="Smoked Spaghetti at Bread And Beans">
+                    <div class="menu-card-content">
+                        <h4 class="text-2xl font-bold text-[#6F4E37] mb-2">Smoked Spaghetti</h4>
+                        <p class="text-gray-600">Al dente pasta tossed in our signature smoked sauce with herbs and spices.</p>
+                    </div>
+                </div>
+
+                <div class="menu-card bg-gradient-to-br from-[#8B4513] to-[#6F4E37] text-white">
+                    <div class="menu-card-content h-full flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold mb-4">More Delights</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i> Mango Squash
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i> Irish Coffee
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i> Pizza Wraps
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i> Peri Peri Fries
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i> KitKat Shake
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle"></i> Veggie Nuggets
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://wa.me/917009020003?text=Hi!%20I%27d%20like%20to%20place%20an%20order" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Order Your Favorite Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="section-title heading-font">Gallery</h2>
+            <p class="section-subtitle">A visual journey through our delicious offerings</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://api.kuse.ai/api/folder/v1/file/d38efc1419995b81da413a3560135153fe4c138d088534f75ea54d9546a64af8_2824807.jpeg')">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/d38efc1419995b81da413a3560135153fe4c138d088534f75ea54d9546a64af8_2824807.jpeg" alt="Pizza Gallery">
+                    <div class="gallery-overlay">
+                        <p class="text-white font-semibold">Pizza</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://api.kuse.ai/api/folder/v1/file/01e1d758492c9d56eac0817e0914ad4ea485408468ebda1589518a05993f8803_2824786.jpeg')">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/01e1d758492c9d56eac0817e0914ad4ea485408468ebda1589518a05993f8803_2824786.jpeg" alt="Burger Gallery">
+                    <div class="gallery-overlay">
+                        <p class="text-white font-semibold">Burger</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://api.kuse.ai/api/folder/v1/file/9971317936abb9ba92d44e9cc1734d67835d1734e66648147fc58cb5e3ccc91b_2824780.jpeg')">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/9971317936abb9ba92d44e9cc1734d67835d1734e66648147fc58cb5e3ccc91b_2824780.jpeg" alt="Caramel Latte Gallery">
+                    <div class="gallery-overlay">
+                        <p class="text-white font-semibold">Caramel Latte</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://api.kuse.ai/api/folder/v1/file/48274ae2085f48484cdee237ecc86000c6e81784ee22a520a9e86e4c8370ba51_2824778.jpeg')">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/48274ae2085f48484cdee237ecc86000c6e81784ee22a520a9e86e4c8370ba51_2824778.jpeg" alt="Sizzling Brownie Sundae Gallery">
+                    <div class="gallery-overlay">
+                        <p class="text-white font-semibold">Sizzling Brownie Sundae</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://api.kuse.ai/api/folder/v1/file/71211cbe086ca467dd82762638ceea0db764156e0be2c1b252e0c512666aa5a5_2824819.jpeg')">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/71211cbe086ca467dd82762638ceea0db764156e0be2c1b252e0c512666aa5a5_2824819.jpeg" alt="Smoked Spaghetti Gallery">
+                    <div class="gallery-overlay">
+                        <p class="text-white font-semibold">Smoked Spaghetti</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('https://api.kuse.ai/api/folder/v1/file/bef0691a439ffdd815a16145d04c300eca66eb7e4ebf34bf03eb1370ee780288_2824775.jpeg')">
+                    <img src="https://api.kuse.ai/api/folder/v1/file/bef0691a439ffdd815a16145d04c300eca66eb7e4ebf34bf03eb1370ee780288_2824775.jpeg" alt="Café Ambience Gallery">
+                    <div class="gallery-overlay">
+                        <p class="text-white font-semibold">Our Cozy Ambience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="bg-[#FFF8F0]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title heading-font">What Our Customers Say</h2>
+            <div class="text-center mb-12">
+                <div class="inline-block bg-white px-8 py-4 rounded-full shadow-lg">
+                    <p class="text-4xl font-bold text-[#8B4513]">4.3 <span class="text-yellow-500">⭐</span></p>
+                    <p class="text-gray-600 mt-1">Based on 123 reviews</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="review-card">
+                    <div class="stars mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4 italic">"Amazing ambiance and delicious food! The pizza is absolutely incredible. Perfect spot for hanging out with friends. Highly recommend!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-[#F5DEB3] rounded-full flex items-center justify-center font-bold text-[#6F4E37]">
+                            R
+                        </div>
+                        <div>
+                            <p class="font-semibold text-[#6F4E37]">Rahul Sharma</p>
+                            <p class="text-sm text-gray-500">Local Guide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4 italic">"Best café in Khanna! The caramel latte is my favorite. Cozy atmosphere and friendly staff. Will definitely visit again!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-[#F5DEB3] rounded-full flex items-center justify-center font-bold text-[#6F4E37]">
+                            P
+                        </div>
+                        <div>
+                            <p class="font-semibold text-[#6F4E37]">Priya Kaur</p>
+                            <p class="text-sm text-gray-500">Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars mb-3">⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4 italic">"Great place for couples and students. Food quality is excellent and the sizzling brownie is a must-try! Love the vibe here."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-[#F5DEB3] rounded-full flex items-center justify-center font-bold text-[#6F4E37]">
+                            A
+                        </div>
+                        <div>
+                            <p class="font-semibold text-[#6F4E37]">Amit Singh</p>
+                            <p class="text-sm text-gray-500">Food Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://www.google.com/search?q=bread+and+beans+khanna+reviews" target="_blank" class="btn-primary">
+                    <i class="fas fa-star"></i> Leave a Review
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title heading-font">Visit Us</h2>
+            <p class="section-subtitle">We're waiting to serve you the best café experience in Khanna</p>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="contact-card text-center">
+                    <div class="contact-icon mx-auto">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#6F4E37] mb-3">Location</h3>
+                    <p class="text-gray-700 mb-4">First Floor, Arora Bakery<br>Grand Trunk Rd, near SBI Bank<br>Shiv Puri Muhalla, Pratap Colony<br>Khanna, Punjab 141401</p>
+                    <a href="https://www.google.com/maps/dir//First+Floor,+Arora+Bakery,+Grand+Trunk+Rd,+near+SBI+Bank,+Shiv+Puri+Muhalla,+Pratap+Colony,+Khanna,+Punjab+141401" target="_blank" class="text-[#8B4513] font-semibold hover:underline">
+                        Get Directions <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="contact-card text-center">
+                    <div class="contact-icon mx-auto">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#6F4E37] mb-3">Call Us</h3>
+                    <p class="text-gray-700 mb-4">Have a question or want to place an order?</p>
+                    <a href="tel:07009020003" class="text-2xl font-bold text-[#8B4513] hover:text-[#6F4E37] block mb-2">070090 20003</a>
+                    <p class="text-sm text-gray-500">Open Daily • Closes at 10 PM</p>
+                </div>
+
+                <div class="contact-card text-center">
+                    <div class="contact-icon mx-auto">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#6F4E37] mb-3">WhatsApp</h3>
+                    <p class="text-gray-700 mb-4">Reserve a table or place your order instantly</p>
+                    <a href="https://wa.me/917009020003" target="_blank" class="btn-whatsapp inline-flex">
+                        <i class="fab fa-whatsapp"></i> Chat Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="rounded-2xl overflow-hidden shadow-2xl">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3438.8!2d76.2!3d30.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDQyJzAwLjAiTiA3NsKwMTInMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-white bg-opacity-10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-coffee text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold heading-font">Bread And Beans</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">Where Flavor Meets Comfort</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="#menu" class="text-gray-300 hover:text-white transition">Menu</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-phone mr-2"></i> 070090 20003</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Khanna, Punjab</li>
+                        <li><i class="fas fa-clock mr-2"></i> Open till 10 PM</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Opening Hours</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex justify-between">
+                            <span>Monday - Sunday</span>
+                            <span>Open</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Closing Time</span>
+                            <span>10:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white border-opacity-20 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-300 text-sm">© 2024 Bread And Beans. All rights reserved.</p>
+                <a href="https://kuse.ai" target="_blank" class="kuse-branding">
+                    <span>made with</span>
+                    <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Gallery Image" id="lightboxImage">
+    </div>
+
+    <!-- Kuse SDK -->
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById(`mobileMenu`);
+            menu.classList.toggle(`active`);
+        }
+
+        window.addEventListener(`scroll`, function() {
+            const nav = document.querySelector(`nav`);
+            if (window.scrollY > 50) {
+                nav.classList.add(`scrolled`);
+            } else {
+                nav.classList.remove(`scrolled`);
+            }
+        });
+
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById(`lightbox`);
+            const lightboxImage = document.getElementById(`lightboxImage`);
+            lightboxImage.src = imageSrc;
+            lightbox.classList.add(`active`);
+            document.body.style.overflow = `hidden`;
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById(`lightbox`);
+            lightbox.classList.remove(`active`);
+            document.body.style.overflow = `auto`;
+        }
+
+        document.addEventListener(`keydown`, function(e) {
+            if (e.key === `Escape`) {
+                closeLightbox();
+            }
+        });
+
+        document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+            anchor.addEventListener(`click`, function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute(`href`));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: `smooth`,
+                        block: `start`
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: `0px 0px -50px 0px`
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = `1`;
+                    entry.target.style.transform = `translateY(0)`;
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(`.menu-card, .review-card, .contact-card`).forEach(card => {
+            card.style.opacity = `0`;
+            card.style.transform = `translateY(30px)`;
+            card.style.transition = `all 0.6s ease`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
